@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My IP Address</title>
+    <script>
+        // JavaScript function to fetch and display the IP address
+        async function getIPAddress() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                document.getElementById('ip-address').textContent = data.ip;
+            } catch (error) {
+                console.error('Error fetching IP address:', error);
+            }
+        }
+
+        // Call the function when the page loads
+        window.onload = getIPAddress;
+    </script>
+</head>
+<body>
+    <h1>My IP Address</h1>
+    <p>Your current IP address is: <span id="ip-address"></span></p>
+</body>
+</html>
